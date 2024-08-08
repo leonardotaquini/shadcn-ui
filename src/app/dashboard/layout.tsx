@@ -1,6 +1,7 @@
 // https://tailwindcomponents.com/component/tailwind-css-admin-dashboard-layout
 // https://gist.github.com/Klerith/3949f1c8b884d7101e378dfb668f0f3a
 
+import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import Link from "next/link";
 
 const links = [
@@ -8,7 +9,15 @@ const links = [
   { name: "alert", href: "alert" },
   { name: "button", href: "button" },
   { name: "alert-dialog", href: "alert-dialog" },
-];
+  { name: "dialog", href: "dialog" },
+  { name: "badge", href: "badge" },
+  { name: "calendar", href: "calendar" },
+  { name: "avatar", href: "avatar" },
+  { name: "card", href: "card" },
+  { name: "carousell", href: "carousell" },
+  { name: "checkbox", href: "checkbox" },
+  { name: "command", href: "command" },
+].sort((a, b) => a.name.localeCompare(b.name));
 
 export default function DashboardLayout({
   children,
@@ -54,8 +63,8 @@ export default function DashboardLayout({
                   ></path>
                 </svg>
               </button>
-              <a
-                href="#"
+              <Link
+                href="/"
                 className="text-xl font-bold flex items-center lg:ml-2.5"
               >
                 {/* Logo */}
@@ -90,15 +99,16 @@ export default function DashboardLayout({
                 </svg>
                 <span className="self-center whitespace-nowrap ml-2">
                   {" "}
-                  Shadcn/ui
+                  Leo UI
                 </span>
-              </a>
+              </Link>
             </div>
             <div className="flex items-center">
               {/* User Avatar */}
-              <div className="bg-blue-500 text-white p-2 rounded-full w-12 h-12 flex items-center justify-center">
-                FH
-              </div>
+              <Avatar>
+                <AvatarImage src="https://github.com/shadcn.png" />
+                <AvatarFallback>CN</AvatarFallback>
+              </Avatar>
             </div>
           </div>
         </div>
